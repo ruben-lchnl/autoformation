@@ -9,14 +9,16 @@
                 $action = $_GET["action"];
                 $libelle = $_POST["libelle"];
                 $num = $_POST["num"];
+                $continent = $_POST["continent"];
                 if($action == "Modifier"){
-                    $req = $db->prepare("UPDATE nationalite set libelle = :libelle where num = :num");
+                    $req = $db->prepare("UPDATE nationalite set libelle = :libelle, numContinent = :numContinent where num = :num");
                     $req->bindParam(":libelle",$libelle);
                     $req->bindParam(":num",$num);
-                    
+                    $req->bindParam(":numContinent",$continent);
                 }else{
-                    $req = $db->prepare("INSERT INTO nationalite(libelle) value(:libelle)");
+                    $req = $db->prepare("INSERT INTO nationalite(libelle, numContinent) value(:libelle, :numContinent)");
                     $req->bindParam(":libelle",$libelle);
+                    $req->bindParam(":numContinent",$continent);
                 }
                 $valid = $req->execute();
                 $message = $action == "Modifier" ? "modifié" : "ajoutée";
@@ -26,7 +28,7 @@
                             </div>';
                     }else{
                         echo '<div class="alert alert-warning" role="alert">
-                                <i class="fas fa-thumbs-up"></i> Il semble qu\'il y à un problème !
+                                <i class="fas fa-thumbs-down"></i> Il semble qu\'il y à un problème !
                             </div>';
                     }
             ?>
