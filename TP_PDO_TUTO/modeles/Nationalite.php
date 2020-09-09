@@ -119,7 +119,7 @@ class Nationalite {
     {
         $req=MonPdo::getInstance()->prepare("INSERT INTO nationalite(libelle,numContinent) VALUES (:libelle, :numContinent)");
         $req->bindParam(":libelle",$nationalite->getLibelle());
-        $req->bindParam(":numContinent",$nationalite->getNumContinent());
+        $req->bindParam(":numContinent",$nationalite->numContinent);
         $nb = $req->execute();
         return $nb;
     }
@@ -132,9 +132,10 @@ class Nationalite {
      */
     public static function update(Nationalite $nationalite)
     {
-        $req=MonPdo::getInstance()->prepare("UPDATE nationalite SET libelle= :libelle WHERE num= :num");
-        $req->binbParam(":libelle", $nationalite->getLibelle());
-        $req->binbParam(":num", $nationalite->getNum());
+        $req=MonPdo::getInstance()->prepare("UPDATE nationalite SET libelle= :libelle,numContinent= :numContinent WHERE num= :num");
+        $req->bindParam(":libelle", $nationalite->getLibelle());
+        $req->bindParam(":num", $nationalite->getNum());
+        $req->bindParam("numContinent", $nationalite->getNumContinent());
         $nb=$req->execute();
         return $nb;
     }

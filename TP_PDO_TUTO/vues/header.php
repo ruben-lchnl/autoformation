@@ -11,7 +11,7 @@
     <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/jumbotron/">
 
     <link rel="stylesheet" href="https://bootswatch.com/4/pulse/bootstrap.css">
-    <link rel="stylesheet" href="./fontawesome-free-5.14.0-web/css/all.css">
+    <link rel="stylesheet" href="../fontawesome-free-5.14.0-web/css/all.css">
     <!-- Favicons -->
 <link rel="apple-touch-icon" href="/docs/4.5/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
 <link rel="icon" href="/docs/4.5/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
@@ -21,9 +21,6 @@
 <link rel="icon" href="/docs/4.5/assets/img/favicons/favicon.ico">
 <meta name="msapplication-config" content="/docs/4.5/assets/img/favicons/browserconfig.xml">
 <meta name="theme-color" content="#563d7c">
-<?php
-  
-?>
 
     <style>
       .bd-placeholder-img {
@@ -66,6 +63,13 @@
           <a class="dropdown-item" href="#">Liste des auteurs</a>
           <a class="dropdown-item" href="#">Ajouter un auteur</a>
           <a class="dropdown-item" href="#">Rechercher un auteur</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-globe"></i>  Gestion des continents</a>
+        <div class="dropdown-menu" aria-labelledby="dropdown01">
+          <a class="dropdown-item" href="index.php?uc=continent&action=list">Liste des continents</a>
+          <a class="dropdown-item" href="index.php?uc=continent&action=add">Ajouter un continent</a>
         </div>
       </li>
       <li class="nav-item dropdown">
